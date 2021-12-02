@@ -1,5 +1,6 @@
 ALTER TABLE users
-ADD armour int NOT NULL DEFAULT(0)
+ADD armour int NOT NULL DEFAULT(0);
+
 
 INSERT INTO `items` (`name`, `label`) VALUES
 	('kevlar', 'Kevlar'),
