@@ -141,7 +141,6 @@ end)
 RegisterServerEvent('aRii0:GetPlayerArmour')
 AddEventHandler('aRii0:GetPlayerArmour', function()
     local _Source = source
-    Citizen.Wait(10000)
     local xPlayer = ESX.GetPlayerFromId(_Source)
     local id = xPlayer.identifier
     MySQL.Async.fetchAll('SELECT armour FROM users WHERE identifier = @id', { 
@@ -192,7 +191,7 @@ AddEventHandler('onResourceStart', function(resourceName)
     if resourceName ~= GetCurrentResourceName() then
         return
     end
-    if GetCurrentResourceName() == "Novel_Kevlar" then
+    if GetCurrentResourceName() == "Novel-Kevlar-vest" then
         while true do
             Citizen.Wait(10000)
             print('.........................Novel Kevlar .....................')

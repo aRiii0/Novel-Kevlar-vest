@@ -113,6 +113,9 @@ AddEventHandler('playerSpawned', function()
         print('-----------------------------------------------------------')
         print('      Script was made by aRii0 from Novel Devevolution')
         print('-----------------------------------------------------------')
+        while ESX == nil do 
+            Citizen.Wait(100)
+        end
         TriggerServerEvent('aRii0:GetPlayerArmour')
         firstspawn = true
     end
