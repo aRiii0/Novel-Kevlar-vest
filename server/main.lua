@@ -191,15 +191,10 @@ AddEventHandler('onResourceStart', function(resourceName)
     if resourceName ~= GetCurrentResourceName() then
         return
     end
-    if GetCurrentResourceName() == "Novel-Kevlar-vest" then
-        while true do
-            Citizen.Wait(10000)
-            print('.........................Novel Kevlar .....................')
-            print('-----------------------------------------------------------')
-            print('      Script was made by aRii0 from Novel Devevolution')
-            print('-----------------------------------------------------------')
-        end
-    end
+    print('.........................Novel Kevlar .....................')
+    print('-----------------------------------------------------------')
+    print('      Script was made by aRii0 from Novel Devevolution')
+    print('-----------------------------------------------------------')
 end)
 
 
