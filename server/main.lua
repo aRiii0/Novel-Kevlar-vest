@@ -1,6 +1,6 @@
 local ESX = nil
 
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+ESX = exports["es_extended"]:getSharedObject()
 
 ESX.RegisterUsableItem('kevlar', function (source)
     local ped = GetPlayerPed(source)
