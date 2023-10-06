@@ -8,6 +8,21 @@ Citizen.CreateThread(function()
     end
 end)
 
+local PlayerData = {}
+
+RegisterNetEvent('esx:playerLoaded')
+AddEventHandler('esx:playerLoaded', function(xPlayer)
+  PlayerData = xPlayer   
+  
+end)
+
+RegisterNetEvent('esx:setJob')
+AddEventHandler('esx:setJob', function(job)
+  PlayerData.job = job
+  
+end)
+
+
 local lib, anim = Config.lib, Config.anim 
 
 Citizen.CreateThread(function()
@@ -43,7 +58,8 @@ AddEventHandler('aRii0:kevlar', function()
         status = true
         SetPedArmour(playerPed, Config.kevlarArmour)
         Citizen.Wait(250)
-        SetKevlarSkin(Config.kevlar, Config.kevlar_2)
+        local skin = GetKevlarSkin("kevlar")
+        SetKevlarSkin(skin.kevlar_1, skin.kevlar_2)
 		TaskPlayAnim(playerPed, lib, anim, 8.0, -8.0, -1, 0, 0.0, false, false, false)
         Citizen.Wait(3000)
         status = false
@@ -61,7 +77,8 @@ AddEventHandler('aRii0:kevlar_m', function()
 	ESX.Streaming.RequestAnimDict(lib, function()
         status = true
         SetPedArmour(playerPed, Config.kevlarArmour_m)
-        SetKevlarSkin(Config.mediumkevlar, Config.mediumkevlar_2)
+        local skin = GetKevlarSkin("kevlar_m")
+        SetKevlarSkin(skin.kevlar_1, skin.kevlar_2)
 		TaskPlayAnim(playerPed, lib, anim, 8.0, -8.0, -1, 0, 0.0, false, false, false)
         Citizen.Wait(3000)
         status = false
@@ -78,7 +95,8 @@ AddEventHandler('aRii0:kevlar_s', function()
 	ESX.Streaming.RequestAnimDict(lib, function()
         status = true
         SetPedArmour(playerPed, Config.kevlarArmour_s)
-        SetKevlarSkin(Config.lowkevlar, Config.lowkevlar_2)
+        local skin = GetKevlarSkin("kevlar_s")
+        SetKevlarSkin(skin.kevlar_1, skin.kevlar_2)
 		TaskPlayAnim(playerPed, lib, anim, 8.0, -8.0, -1, 0, 0.0, false, false, false)
         Citizen.Wait(3000)
         status = false
@@ -91,10 +109,12 @@ AddEventHandler('aRii0:kevlar_p', function()
     local playerPed = PlayerPedId()
 
 	Citizen.Wait(250)
-    SetKevlarSkin(Config.policekevlar, Config.policekevlar_2)
+    
 	ESX.Streaming.RequestAnimDict(lib, function()
         status = true
         SetPedArmour(playerPed, Config.kevlarArmour_p)
+        local skin = GetKevlarSkin("kevlar_p")
+        SetKevlarSkin(skin.kevlar_1, skin.kevlar_2)
 		TaskPlayAnim(playerPed, lib, anim, 8.0, -8.0, -1, 0, 0.0, false, false, false)
         Citizen.Wait(3000)
         status = false
@@ -121,6 +141,13 @@ AddEventHandler('playerSpawned', function()
     end
 end)
 
+function GetKevlarSkin(kevlartype)
+    if  Config.KevlarSkins[PlayerData.job.name] ~= nil then 
+        return Config.KevlarSkins[PlayerData.job.name]
+    end
+
+    return Config.KevlarSkins[kevlartype]
+end
   
 
 

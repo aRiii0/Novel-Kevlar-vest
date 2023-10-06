@@ -18,6 +18,29 @@ Config.lowkevlar2 = 2
 Config.policekevlar = 22
 Config.policekevlar_2 = 3
 
+Config.KevlarSkins = {
+    ["kevlar"] = {
+        kevlar_1 = 22,
+        kevlar_2 = 0
+    },
+    ["kevlar_s"] = {
+        kevlar_1 = 22,
+        kevlar_2 = 2
+    },
+    ["kevlar_m"] = {
+        kevlar_1 = 22,
+        kevlar_2 = 1
+    },
+    ["kevlar_police"] = {
+        kevlar_1 = 22,
+        kevlar_2 = 3
+    },
+    ["fib"] = { --job example
+        kevlar_1 = 5,
+        kevlar_2 = 0
+    }
+ }
+
 -- animation when dressing kevlar
 
 Config.lib = 'oddjobs@basejump@ig_15'
